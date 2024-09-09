@@ -1,13 +1,30 @@
+"""@package src
+The Model module contains a description of a model's thermodynamic state, as well as the abstract class from which the model will be derived.
+
+@mainpage Fuel Cell Model
+
+@section description_main Description
+A simple python program containing a set of tools to analyze fuel cell lumped models.
+
+@section notes_main Notes
+ - The Fuel Cell model implementation is left to the user.
+"""
+
 from abc import ABC, abstractmethod
 
 class State:
-    '''
-    A class to facilitate the storage and transfer of model state information
-    All properties can be accessed externally
-    '''
+    """A class to facilitate the storage and transfer of model thermodynamic state information.
+    
+    The thermodynamic state is understood to be the:
+        @param T Temperature
+        @param P Pressure
+        @param pH2 Hydrogen partial pressure
+        @param pO2 Oxygen partial pressure
+        @param pH2O Water partial pressure
+    """
 
     def __init__(self,state=None):
-        #All properties are initialized as None
+        """A State object can be instantiated with no arguments, in which case the variables are initialized with None. If another State object is passed, the new instance will copy the values of the old one."""
         self._T = None
         self._P = None
         self._pH2 = None
@@ -22,9 +39,9 @@ class State:
         elif(state!=None):
             raise TypeError("State: Expected a State object, got {0}".format(type(state)))
 
-    #The absolute temperature, in K
     @property
     def T(self):
+        """The fuel cell's temperature."""
         return self._T
 
     @T.setter
@@ -36,9 +53,9 @@ class State:
     def T(self):
         del self._T
 
-    #The absolute pressure, in Pa
     @property
     def P(self):
+        """The fuel cell's pressure."""
         return self._P
 
     @P.setter
@@ -50,9 +67,9 @@ class State:
     def P(self):
         del self._P
 
-    #Anode hydrogen partial pressure, in Pa
     @property
     def pH2(self):
+        """The fuel cell's hydrogen partial pressure."""
         return self._pH2
 
     @pH2.setter
@@ -64,9 +81,9 @@ class State:
     def pH2(self):
         del self._pH2
 
-    #Cathode oxygen partial pressure, in Pa
     @property
     def pO2(self):
+        """The fuel cell's oxygen partial pressure."""
         return self._pO2
 
     @pO2.setter
@@ -78,9 +95,9 @@ class State:
     def pO2(self):
         del self._pO2
 
-    #Anode water partial pressure, in Pa
     @property
     def pH2O(self):
+        """The fuel cell's water partial pressure."""
         return self._pH2O
 
     @pH2O.setter
@@ -92,21 +109,21 @@ class State:
     def pH2O(self):
         del self._pH2O
 
-class SOFC_Model(ABC):
-    '''
-    An abstract class describing the general interface of a SOFC lumped model
-    The implementation of the model itself is left for the child classes
-    The class is setup assuming isothermal and isobaric operation
-    '''
+class Model(ABC):
+    """An abstract class describing the general interface of a fuel cell lumped model.
+
+    The implementation of the mathematical model itself is left for the child classes.
+    The class is setup with isothermal and isobaric operation in mind.
+    """
     
     #Constants
     #WARNING: Overwrite their values in the child class if using different units
     R = 8.31446261815324 #J/mol.K
     F = 96485.3321 #C    
     
-    #The state under which the calculations are performed
     @property
     def state(self):
+        """The thermodynamic state in which the calculations will be performed."""
         return self._state
 
     @state.setter
@@ -121,9 +138,13 @@ class SOFC_Model(ABC):
     @property
     @abstractmethod
     def constants(self):
+        """This method shall return the constants used in the implemented model.
+
+        This method's implementation is required for the Optimization class to function.
+        """
         pass
 
-    #A method to calculate the output voltage
     @abstractmethod
     def E(self,*args,**kwargs):
+        """This method shall return the fuel cell voltage predicted by the model."""
         pass

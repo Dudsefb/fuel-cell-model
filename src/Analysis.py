@@ -8,8 +8,14 @@ tp = np.float32
 from abc import ABC, abstractmethod
 
 class Analyzer(ABC):
+"""An abstract class to define the common attributes of model analyzers."""
 
     def __init__(self,*args,**kwargs):
+        """The constructor, which accepts both positional and non-positional arguments. If both are given, non-positional arguments take precedence.
+        
+            @param data A DataManager object containing the experimental data.
+            @param model A Model object.
+        """
         if len(args)>0: self.data = args[0]
         if len(args)>1: self.model = args[1]
         if "data" in kwargs: self.data = kwargs["data"]
@@ -17,6 +23,7 @@ class Analyzer(ABC):
 
     @property
     def data(self):
+        """A DataManager object containing the experimental data."""
         return self._data
 
     @data.setter
@@ -30,6 +37,7 @@ class Analyzer(ABC):
 
     @property
     def model(self):
+        """A Model object."""
         return self._model
 
     @model.setter
@@ -42,11 +50,17 @@ class Analyzer(ABC):
         del self._model
 
 class Optimizer(Analyzer):
+"""A simple class that makes use of scipy's minimize() function to optimize the model's constants."""
 
     def __init__(self,*args,**kwargs):
+        """The constructor, which passes the arguments to the Analyzer parent class."""
         super().__init__(*args,**kwargs)    
 
     def maxError(self):
+        """Calculates the maximum error between the experimental data and the model.
+            
+            @return The modulus of the maximum relative error \f$max\left(\left|\frac{E_{Model}-E_{Experimental}\right|}{E_{Experimental}}\right)\f$
+        """
         n = len(self.data.points)
         error = np.zeros(n,dtype=tp)
         maxError = 0
@@ -57,6 +71,10 @@ class Optimizer(Analyzer):
         return maxError
 
     def meanError(self):
+        """Calculates the mean error between the experimental data and the model.
+
+            @return The modulus of the mean relative error \f$\frac{1}{n}\sum_{i=0}^{n}\left(\left|\frac{E_{Model,i}-E_{Experimental,i}\right|}{E_{Experimental,i}}\right)\f$
+        """
         n = len(self.data.points)
         acc = 0
         for i in range(0,n):
@@ -65,10 +83,25 @@ class Optimizer(Analyzer):
         return acc/n
 
     def __objective(self,X):
+        """The objective function that will be optimized.
+            
+            @param X A numpy array containing the model constants, as specified in the model's implementation.
+
+            @return The mean error between the experimental data and the model.
+        """
         self.model.constants = X
         return self.meanError()
 
     def findOptimum(self,X0,method,options,bounds=None):
+        """Optimizes the model's constants.
+        
+            @param X0 The set of initial values for the constants.
+            @param method A string defining the optimization method that will be used (see scipy.optimize.minimize() for more info).
+            @param options A dictionary containing the options for the optimization algorithm.
+            @param bounds The bounds of the values, in case a bounded algorithm is selected.
+
+            @return An array with the optimized constants.
+        """
         if(bounds==None):
             ans = minimize(self.__objective,X0,method=method,options=options)
         else:

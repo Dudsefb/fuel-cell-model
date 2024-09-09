@@ -1,24 +1,32 @@
-from Model import State
+"""@package src
+This module contains classes to handle experimental data.
 
+It contains classes for data input and output, as well as some classes to facilitate data handling.
+"""
+
+from Model import State
 import csv
 
 class DataPoint:
-    '''
-    A simple class to store experimental data points
-    It stores the current density and voltage, as well as the State under
-    which the experiment has been performed
-    '''
+    """A simple class to store data points.
+
+    Its main purpose is to store experimental data, which is assumed to be:
+        j Current density
+        E Voltage
+        state A State object containing the thermodynamic state under which the voltage and current density have been measured.
+    """
+
     def __init__(self,arr=[]):
-        '''
-        The initialization expects an array (optional) where:
-        [0] - Current density [A/m^2]        - optional
-        [1] - Voltage [V]                    - optional
-        [2] - Temperature [K]                - optional
-        [3] - Pressure [Pa]                  - optional
-        [4] - Hydrogen partial pressure [Pa] - optional
-        [5] - Oxygen partial pressure [Pa]   - optional
-        [6] - H2O partial pressure [Pa]      - optional
-        '''
+        """The constructor expects an array (optional) where:
+            @param arr An input array where.
+                [0] Current density [A/m^2]        
+                [1] Voltage [V]                    
+                [2] Temperature [K]                
+                [3] Pressure [Pa]                  
+                [4] Hydrogen partial pressure [Pa] 
+                [5] Oxygen partial pressure [Pa]
+                [6] H2O partial pressure [Pa]      
+        """
         self._j = None
         self._E = None
         self.state = State()
@@ -30,9 +38,9 @@ class DataPoint:
         if len(arr)>5: self.state.pO2 = arr[5]
         if len(arr)>6: self.state.pH2O = arr[6]
 
-    #The current density [A/m^2]
     @property
     def j(self):
+        """The current density."""
         return self._j
 
     @j.setter
@@ -44,9 +52,9 @@ class DataPoint:
     def j(self):
         del self._j
 
-    #The voltage [V]
     @property
     def E(self):
+        """The cells voltage."""
         return self._E
 
     @E.setter
@@ -58,9 +66,9 @@ class DataPoint:
     def E(self):
         del self._E
 
-    #The state
     @property
     def state(self):
+        """The thermodynamic state under which the data point has been aquired."""
         return self._state
 
     @state.setter
@@ -73,21 +81,23 @@ class DataPoint:
         del self._state
 
 class DataManager:
-    '''
-    The DataManager is responsible for handling experimental data and
-    carrying out batch operations
-    '''
+    """The DataManager is responsible for handling experimental data and carrying out batch operations.
+    """
 
     def __init__(self):
-        #The object initializes with an empty list of DataPoint objects
+        """The constructor initializes a DataManager object with an empty list of points."""
         self._points = []
 
-    #The list of DataPoint objects
     @property
     def points(self):
+        """The list of DataPoint objects."""
         return self._points
 
     def addPoint(self,point):
+        """Adds a DataPoint object to the list.
+
+            @param point A DataPoint object.
+        """
         if not isinstance(point,DataPoint): raise TypeError("DataManager.addPoint: Expected a DataPoint object, got {0}".format(type(point)))
         self._points.append(point)
 
@@ -98,124 +108,148 @@ class DataManager:
     def getNumberOfPoints(self):
         return len(self._points)
     
-    #Operations to set the variable to a value if doesn't have a value
     def fill_j(self,value):
+        """Sets the point's j value if it has None."""
         for point in self.points:
             if point.j == None: point.j = value
 
     def fill_E(self,value):
+        """Sets the point's E value if it has None."""
         for point in self.points:
             if point.E == None: point.E = value
 
     def fill_T(self,value):
+        """Sets the point's T value if it has None."""
         for point in self.points:
             if point.state.T == None: point.state.T = value
 
     def fill_P(self,value):
+        """Sets the point's P value if it has None."""
         for point in self.points:
             if point.state.P == None: point.state.P = value
 
     def fill_pH2(self,value):
+        """Sets the point's pH2 value if it has None."""
         for point in self.points:
             if point.state.pH2 == None: point.state.pH2 = value
 
     def fill_pO2(self,value):
+        """Sets the point's pO2 value if it has None."""
         for point in self.points:
             if point.state.pO2 == None: point.state.pO2 = value
 
     def fill_pH2O(self,value):
+        """Sets the point's pH2O value if it has None."""
         for point in self.points:
             if point.state.pH2O == None: point.state.pH2O = value
     
-    #Operations to overwrite the variable with a value
     def overwrite_j(self,value):
+        """Overwrites the point's j value."""
         for point in self.points:
             point.j = value
 
     def overwrite_E(self,value):
+        """Overwrites the point's E value."""
         for point in self.points:
             point.E = value
 
     def overwrite_T(self,value):
+        """Overwrites the point's T value."""
         for point in self.points:
             point.state.T = value
 
     def overwrite_P(self,value):
+        """Overwrites the point's P value."""
         for point in self.points:
             point.state.P = value
 
     def overwrite_pH2(self,value):
+        """Overwrites the point's pH2 value."""
         for point in self.points:
             point.state.pH2 = value
 
     def overwrite_pO2(self,value):
+        """Overwrites the point's pO2 value."""
         for point in self.points:
             point.state.pO2 = value
 
     def overwrite_pH2O(self,value):
+        """Overwrites the point's pH2O value."""
         for point in self.points:
             point.state.pH2O = value
 
-    #Operations to rescale the variable by a certain factor
     def rescale_j(self,value):
+        """Multiplies the point's j value by a factor."""
         for point in self.points:
             point.j *= value
 
     def rescale_E(self,value):
+        """Multiplies the point's E value by a factor."""
         for point in self.points:
             point.E *= value
 
     def rescale_T(self,value):
+        """Multiplies the point's T value by a factor."""
         for point in self.points:
             point.state.T *= value
 
     def rescale_P(self,value):
+        """Multiplies the point's P value by a factor."""
         for point in self.points:
             point.state.P *= value
 
     def rescale_pH2(self,value):
+        """Multiplies the point's pH2 value by a factor."""
         for point in self.points:
             point.state.pH2 *= value
 
     def rescale_pO2(self,value):
+        """Multiplies the point's pO2 value by a factor."""
         for point in self.points:
             point.state.pO2 *= value
 
     def rescale_pH2O(self,value):
+        """Multiplies the point's pH2O value by a factor."""
         for point in self.points:
             point.state.pH2O *= value
 
-    #Operations to offset the variable by a certain value
     def offset_j(self,value):
+        """Offsets the point's j by the specified value."""
         for point in self.points:
             point.j += value
 
     def offset_E(self,value):
+        """Offsets the point's E by the specified value."""
         for point in self.points:
             point.E += value
 
     def offset_T(self,value):
+        """Offsets the point's T by the specified value."""
         for point in self.points:
             point.state.T += value
 
     def offset_P(self,value):
+        """Offsets the point's P by the specified value."""
         for point in self.points:
             point.state.P += value
 
     def offset_pH2(self,value):
+        """Offsets the point's pH2 by the specified value."""
         for point in self.points:
             point.state.pH2 += value
 
     def offset_pO2(self,value):
+        """Offsets the point's pO2 by the specified value."""
         for point in self.points:
             point.state.pO2 += value
 
     def offset_pH2O(self,value):
+        """Offsets the point's pH2O by the specified value."""
         for point in self.points:
             point.state.pH2O += value
 
-    #Exports the data contained in the object to a txt file
     def save_txt(self,path):
+        """Saves the contents of the DataManager to a text file."""
         with open(path,'w') as file:
             for point in self.points:
                 file.write("{0} {1} {2} {3} {4} {5} {6}\n".format(point.j,point.E,
@@ -223,16 +257,20 @@ class DataManager:
             file.close()
 
 class Reader:
-    '''
-    The reader class has some tools to handle the import of pre-formatted data
-    It currently works with csv and txt files
-    '''
+    """The reader class has tools to handle the import of pre-formatted data.
+    
+    It currently accepts csv and txt files.
+    """
 
     def __init__(self):
+        """The constructor."""
         pass
 
     def __trim(self,arr):
-        #This fucntion removes any empty entries from a list
+        """Removes any empty entries from a list.
+
+            @param arr The array from which empty entries will be removed.
+        """
         while('' in arr):
             arr.pop(arr.index(''))
         while(' ' in arr):
@@ -242,7 +280,12 @@ class Reader:
         return arr
 
     def read_txt(self,path):
-        #This function returns a DataManager object with the data from a txt file
+        """Reads pre-formatted data from a txt file and returns it as a DataManager object.
+            
+            @param path The path where the pre-formatted txt file is stored.
+            
+            @return A DataManager object containing the file data.
+        """
         with open(path,'r') as file:
             buffer = file.read().split('\n')
             buffer = self.__trim(buffer)
@@ -256,7 +299,12 @@ class Reader:
         return ans
 
     def read_csv(self,path):
-        #This function returns a dictionary with the data from a csv file
+        """Reads pre-formatted data from a csv file.
+
+            @param path The path where the pre-formatted csv file is stored.
+
+            @return A dictionary containing the data.
+        """
         with open(path,newline='\n') as file:
             csv_reader = csv.reader(file,delimiter=',',quotechar='\"')
             buffer = []
