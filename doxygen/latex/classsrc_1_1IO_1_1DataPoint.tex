@@ -1,0 +1,149 @@
+\hypertarget{classsrc_1_1IO_1_1DataPoint}{}\doxysection{Data\+Point Class Reference}
+\label{classsrc_1_1IO_1_1DataPoint}\index{DataPoint@{DataPoint}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classsrc_1_1IO_1_1DataPoint_a847885aa666bcd74e65a0789cd8a068e}{\+\_\+\+\_\+init\+\_\+\+\_\+}} (self, arr=\mbox{[}$\,$\mbox{]})
+\item 
+def \mbox{\hyperlink{classsrc_1_1IO_1_1DataPoint_af27a1ea4d0ddf2822bf6a470d3db5a4d}{E}} (self)
+\item 
+def \mbox{\hyperlink{classsrc_1_1IO_1_1DataPoint_af27a1ea4d0ddf2822bf6a470d3db5a4d}{E}} (self)
+\item 
+def \mbox{\hyperlink{classsrc_1_1IO_1_1DataPoint_af2e02c5bd9fe259f93a96dc46362b95a}{E}} (self, value)
+\item 
+def \mbox{\hyperlink{classsrc_1_1IO_1_1DataPoint_a3f56167ff87638755e1ad7daf1663699}{j}} (self)
+\item 
+def \mbox{\hyperlink{classsrc_1_1IO_1_1DataPoint_a3f56167ff87638755e1ad7daf1663699}{j}} (self)
+\item 
+def \mbox{\hyperlink{classsrc_1_1IO_1_1DataPoint_a016e1974414b2d83336ae4882c7007af}{j}} (self, value)
+\item 
+def \mbox{\hyperlink{classsrc_1_1IO_1_1DataPoint_a78378aeec68def3f63e8aa4110a24313}{state}} (self)
+\item 
+def \mbox{\hyperlink{classsrc_1_1IO_1_1DataPoint_a78378aeec68def3f63e8aa4110a24313}{state}} (self)
+\item 
+def \mbox{\hyperlink{classsrc_1_1IO_1_1DataPoint_a5f4d085267f01d0ea24e437502924554}{state}} (self, value)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classsrc_1_1IO_1_1DataPoint_aa57b8491d1d8fc1014dd54bcf83b130a}{E}}
+\item 
+\mbox{\hyperlink{classsrc_1_1IO_1_1DataPoint_abf2bc2545a4a5f5683d9ef3ed0d977e0}{j}}
+\item 
+\mbox{\hyperlink{classsrc_1_1IO_1_1DataPoint_adc6e5733fc3c22f0a7b2914188c49c90}{state}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyVerb}A simple class to store data points.
+
+Its main purpose is to store experimental data, which is assumed to be:
+    j Current density
+    E Voltage
+    state A State object containing the thermodynamic state under which the voltage and current density have been measured.
+\end{DoxyVerb}
+ 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classsrc_1_1IO_1_1DataPoint_a847885aa666bcd74e65a0789cd8a068e}\label{classsrc_1_1IO_1_1DataPoint_a847885aa666bcd74e65a0789cd8a068e}} 
+\index{DataPoint@{DataPoint}!\_\_init\_\_@{\_\_init\_\_}}
+\index{\_\_init\_\_@{\_\_init\_\_}!DataPoint@{DataPoint}}
+\doxysubsubsection{\texorpdfstring{\_\_init\_\_()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def \+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{arr = {\ttfamily \mbox{[}\mbox{]}} }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}The constructor expects an array (optional) where:
+    @param arr An input array where.
+        [0] Current density [A/m^2]        
+        [1] Voltage [V]                    
+        [2] Temperature [K]                
+        [3] Pressure [Pa]                  
+        [4] Hydrogen partial pressure [Pa] 
+        [5] Oxygen partial pressure [Pa]
+        [6] H2O partial pressure [Pa]      
+\end{DoxyVerb}
+ 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classsrc_1_1IO_1_1DataPoint_af27a1ea4d0ddf2822bf6a470d3db5a4d}\label{classsrc_1_1IO_1_1DataPoint_af27a1ea4d0ddf2822bf6a470d3db5a4d}} 
+\index{DataPoint@{DataPoint}!E@{E}}
+\index{E@{E}!DataPoint@{DataPoint}}
+\doxysubsubsection{\texorpdfstring{E()}{E()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily def E (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}The cells voltage.\end{DoxyVerb}
+ \mbox{\Hypertarget{classsrc_1_1IO_1_1DataPoint_af27a1ea4d0ddf2822bf6a470d3db5a4d}\label{classsrc_1_1IO_1_1DataPoint_af27a1ea4d0ddf2822bf6a470d3db5a4d}} 
+\index{DataPoint@{DataPoint}!E@{E}}
+\index{E@{E}!DataPoint@{DataPoint}}
+\doxysubsubsection{\texorpdfstring{E()}{E()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily def E (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classsrc_1_1IO_1_1DataPoint_af2e02c5bd9fe259f93a96dc46362b95a}\label{classsrc_1_1IO_1_1DataPoint_af2e02c5bd9fe259f93a96dc46362b95a}} 
+\index{DataPoint@{DataPoint}!E@{E}}
+\index{E@{E}!DataPoint@{DataPoint}}
+\doxysubsubsection{\texorpdfstring{E()}{E()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily def E (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{value }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classsrc_1_1IO_1_1DataPoint_a3f56167ff87638755e1ad7daf1663699}\label{classsrc_1_1IO_1_1DataPoint_a3f56167ff87638755e1ad7daf1663699}} 
+\index{DataPoint@{DataPoint}!j@{j}}
+\index{j@{j}!DataPoint@{DataPoint}}
+\doxysubsubsection{\texorpdfstring{j()}{j()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily def j (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}The current density.\end{DoxyVerb}
+ \mbox{\Hypertarget{classsrc_1_1IO_1_1DataPoint_a3f56167ff87638755e1ad7daf1663699}\label{classsrc_1_1IO_1_1DataPoint_a3f56167ff87638755e1ad7daf1663699}} 
+\index{DataPoint@{DataPoint}!j@{j}}
+\index{j@{j}!DataPoint@{DataPoint}}
+\doxysubsubsection{\texorpdfstring{j()}{j()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily def j (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classsrc_1_1IO_1_1DataPoint_a016e1974414b2d83336ae4882c7007af}\label{classsrc_1_1IO_1_1DataPoint_a016e1974414b2d83336ae4882c7007af}} 
+\index{DataPoint@{DataPoint}!j@{j}}
+\index{j@{j}!DataPoint@{DataPoint}}
+\doxysubsubsection{\texorpdfstring{j()}{j()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily def j (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{value }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classsrc_1_1IO_1_1DataPoint_a78378aeec68def3f63e8aa4110a24313}\label{classsrc_1_1IO_1_1DataPoint_a78378aeec68def3f63e8aa4110a24313}} 
+\index{DataPoint@{DataPoint}!state@{state}}
+\index{state@{state}!DataPoint@{DataPoint}}
+\doxysubsubsection{\texorpdfstring{state()}{state()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily def state (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}The thermodynamic state under which the data point has been aquired.\end{DoxyVerb}
+ \mbox{\Hypertarget{classsrc_1_1IO_1_1DataPoint_a78378aeec68def3f63e8aa4110a24313}\label{classsrc_1_1IO_1_1DataPoint_a78378aeec68def3f63e8aa4110a24313}} 
+\index{DataPoint@{DataPoint}!state@{state}}
+\index{state@{state}!DataPoint@{DataPoint}}
+\doxysubsubsection{\texorpdfstring{state()}{state()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily def state (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classsrc_1_1IO_1_1DataPoint_a5f4d085267f01d0ea24e437502924554}\label{classsrc_1_1IO_1_1DataPoint_a5f4d085267f01d0ea24e437502924554}} 
+\index{DataPoint@{DataPoint}!state@{state}}
+\index{state@{state}!DataPoint@{DataPoint}}
+\doxysubsubsection{\texorpdfstring{state()}{state()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily def state (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{value }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classsrc_1_1IO_1_1DataPoint_aa57b8491d1d8fc1014dd54bcf83b130a}\label{classsrc_1_1IO_1_1DataPoint_aa57b8491d1d8fc1014dd54bcf83b130a}} 
+\index{DataPoint@{DataPoint}!E@{E}}
+\index{E@{E}!DataPoint@{DataPoint}}
+\doxysubsubsection{\texorpdfstring{E}{E}}
+{\footnotesize\ttfamily E}
+
+\mbox{\Hypertarget{classsrc_1_1IO_1_1DataPoint_abf2bc2545a4a5f5683d9ef3ed0d977e0}\label{classsrc_1_1IO_1_1DataPoint_abf2bc2545a4a5f5683d9ef3ed0d977e0}} 
+\index{DataPoint@{DataPoint}!j@{j}}
+\index{j@{j}!DataPoint@{DataPoint}}
+\doxysubsubsection{\texorpdfstring{j}{j}}
+{\footnotesize\ttfamily j}
+
+\mbox{\Hypertarget{classsrc_1_1IO_1_1DataPoint_adc6e5733fc3c22f0a7b2914188c49c90}\label{classsrc_1_1IO_1_1DataPoint_adc6e5733fc3c22f0a7b2914188c49c90}} 
+\index{DataPoint@{DataPoint}!state@{state}}
+\index{state@{state}!DataPoint@{DataPoint}}
+\doxysubsubsection{\texorpdfstring{state}{state}}
+{\footnotesize\ttfamily state}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/dudsefb/git/fuel-\/cell-\/model/src/\mbox{\hyperlink{IO_8py}{IO.\+py}}\end{DoxyCompactItemize}

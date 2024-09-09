@@ -1,0 +1,107 @@
+\hypertarget{classsrc_1_1Model_1_1Model}{}\doxysection{Model Class Reference}
+\label{classsrc_1_1Model_1_1Model}\index{Model@{Model}}
+
+
+Inheritance diagram for Model\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=127pt]{classsrc_1_1Model_1_1Model__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Model\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=127pt]{classsrc_1_1Model_1_1Model__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \mbox{\hyperlink{classsrc_1_1Model_1_1Model_a2800fcae12ca2e2a3b2b02061c98e1e9}{constants}} (self)
+\item 
+def \mbox{\hyperlink{classsrc_1_1Model_1_1Model_ad771a01a604a105f84e7b7bade363d08}{E}} (self, $\ast$args, $\ast$$\ast$kwargs)
+\item 
+def \mbox{\hyperlink{classsrc_1_1Model_1_1Model_a78378aeec68def3f63e8aa4110a24313}{state}} (self)
+\item 
+def \mbox{\hyperlink{classsrc_1_1Model_1_1Model_a78378aeec68def3f63e8aa4110a24313}{state}} (self)
+\item 
+def \mbox{\hyperlink{classsrc_1_1Model_1_1Model_a5f4d085267f01d0ea24e437502924554}{state}} (self, value)
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{classsrc_1_1Model_1_1Model_a9ab4bd02302051f763e80ede43fcac71}{F}} = 96485.\+3321
+\item 
+float \mbox{\hyperlink{classsrc_1_1Model_1_1Model_a4c4b08e61e92b3da1ed512f4e006f34a}{R}} = 8.\+31446261815324
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyVerb}An abstract class describing the general interface of a fuel cell lumped model.
+
+The implementation of the mathematical model itself is left for the child classes.
+The class is setup with isothermal and isobaric operation in mind.
+\end{DoxyVerb}
+ 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classsrc_1_1Model_1_1Model_a2800fcae12ca2e2a3b2b02061c98e1e9}\label{classsrc_1_1Model_1_1Model_a2800fcae12ca2e2a3b2b02061c98e1e9}} 
+\index{Model@{Model}!constants@{constants}}
+\index{constants@{constants}!Model@{Model}}
+\doxysubsubsection{\texorpdfstring{constants()}{constants()}}
+{\footnotesize\ttfamily def constants (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This method shall return the constants used in the implemented model.
+
+This method's implementation is required for the Optimization class to function.
+\end{DoxyVerb}
+ \mbox{\Hypertarget{classsrc_1_1Model_1_1Model_ad771a01a604a105f84e7b7bade363d08}\label{classsrc_1_1Model_1_1Model_ad771a01a604a105f84e7b7bade363d08}} 
+\index{Model@{Model}!E@{E}}
+\index{E@{E}!Model@{Model}}
+\doxysubsubsection{\texorpdfstring{E()}{E()}}
+{\footnotesize\ttfamily def E (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{$\ast$}]{args,  }\item[{$\ast$$\ast$}]{kwargs }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}This method shall return the fuel cell voltage predicted by the model.\end{DoxyVerb}
+ \mbox{\Hypertarget{classsrc_1_1Model_1_1Model_a78378aeec68def3f63e8aa4110a24313}\label{classsrc_1_1Model_1_1Model_a78378aeec68def3f63e8aa4110a24313}} 
+\index{Model@{Model}!state@{state}}
+\index{state@{state}!Model@{Model}}
+\doxysubsubsection{\texorpdfstring{state()}{state()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily def state (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}The thermodynamic state in which the calculations will be performed.\end{DoxyVerb}
+ \mbox{\Hypertarget{classsrc_1_1Model_1_1Model_a78378aeec68def3f63e8aa4110a24313}\label{classsrc_1_1Model_1_1Model_a78378aeec68def3f63e8aa4110a24313}} 
+\index{Model@{Model}!state@{state}}
+\index{state@{state}!Model@{Model}}
+\doxysubsubsection{\texorpdfstring{state()}{state()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily def state (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classsrc_1_1Model_1_1Model_a5f4d085267f01d0ea24e437502924554}\label{classsrc_1_1Model_1_1Model_a5f4d085267f01d0ea24e437502924554}} 
+\index{Model@{Model}!state@{state}}
+\index{state@{state}!Model@{Model}}
+\doxysubsubsection{\texorpdfstring{state()}{state()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily def state (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{value }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classsrc_1_1Model_1_1Model_a9ab4bd02302051f763e80ede43fcac71}\label{classsrc_1_1Model_1_1Model_a9ab4bd02302051f763e80ede43fcac71}} 
+\index{Model@{Model}!F@{F}}
+\index{F@{F}!Model@{Model}}
+\doxysubsubsection{\texorpdfstring{F}{F}}
+{\footnotesize\ttfamily float F = 96485.\+3321\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classsrc_1_1Model_1_1Model_a4c4b08e61e92b3da1ed512f4e006f34a}\label{classsrc_1_1Model_1_1Model_a4c4b08e61e92b3da1ed512f4e006f34a}} 
+\index{Model@{Model}!R@{R}}
+\index{R@{R}!Model@{Model}}
+\doxysubsubsection{\texorpdfstring{R}{R}}
+{\footnotesize\ttfamily float R = 8.\+31446261815324\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+/home/dudsefb/git/fuel-\/cell-\/model/src/\mbox{\hyperlink{Model_8py}{Model.\+py}}\end{DoxyCompactItemize}
